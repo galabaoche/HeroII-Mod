@@ -13,20 +13,15 @@
     <body style="background-color: black">
     <script type="text/javascript" src="js/jquery.js"></script>
     <script>
-        var LocalData=window.localStorage;var SessionData=window.sessionStorage;SessionData.opengame=2;LocalData.localvs=parseInt(293);SessionData.Safety=0;
+        var LocalData=window.localStorage;var SessionData=window.sessionStorage;SessionData.opengame=2;LocalData.localvs=parseInt(294);SessionData.Safety=20180108;
         if(LocalData.time==undefined){LocalData.time=Ftime();}if(LocalData.Fmii==undefined){LocalData.Fmii=20180108;}
-        LoadGame();function LoadGame(){
-            $.get(Jurl+Uurl+"Hot", function (result) {if(SessionData.version==result){}else{SessionData.version=result;}});$.get(Jurl+Uurl+"DataII", function (result) {SessionData.dataiiurl=result});
-            $.get(Jurl+Uurl+"Contents", function (result) {LocalData.vsnumber=result});$.get(Jurl+Uurl+"Version", function (result) {SessionData.newvs=parseInt(result)});$.get(Jurl+Nurl+"Upt", function (result) {SessionData.UpdateTime=result})
-            $.get(Jurl+Uurl+"Online", function (result) {SessionData.opengame=result});$.get(Jurl+Uurl+"Update", function (result) {LocalData.hottext=result});$.get(Jurl+Uurl+"Fmii", function (result) {LocalData.Fmii=result});
-        };
-        function Ftime(){var d=new Date();var tyear=d.getFullYear();var tmonth=d.getMonth()+1;var tday=d.getDate();var thour=d.getHours();var tminute=d.getMinutes();var tsecond=d.getSeconds();var s=tyear*10000000000+tmonth*100000000+tday*1000000+thour*10000+tminute*100+tsecond;return s;};
-        function Stime(){var d=new Date();var tyear=d.getFullYear();var tmonth=d.getMonth()+1;var tday=d.getDate();var s=tyear*10000+tmonth*100+tday;return s;};
+        LoadGame();function LoadGame(){$.get(Jurl+Uurl+"Online", function (result) {SessionData.opengame=result});$.get(Jurl+Uurl+"Fmii", function (result) {LocalData.Fmii=result});}
+        function Ftime(){var d=new Date();var tyear=d.getFullYear();var tmonth=d.getMonth()+1;var tday=d.getDate();var thour=d.getHours();var tminute=d.getMinutes();var tsecond=d.getSeconds();var s=tyear*10000000000+tmonth*100000000+tday*1000000+thour*10000+tminute*100+tsecond;return s;}
+        function Stime(){var d=new Date();var tyear=d.getFullYear();var tmonth=d.getMonth()+1;var tday=d.getDate();var s=tyear*10000+tmonth*100+tday;return s;}
         if(LocalData.device==undefined){
             Xiao_Lumn();function Xiao_Lumn(PCurl,WebUel){var UserClient = navigator.userAgent.toLowerCase();var IsIPad = UserClient.match(/ipad/i) == "ipad";var IsIphoneOs = UserClient.match(/iphone os/i) == "iphone os";var IsAndroid = UserClient.match(/android/i) == "android";
                 if(IsIPad){LocalData.device=1;}else if(IsIphoneOs){LocalData.device=2;}else if(IsAndroid){LocalData.device=3;}else {LocalData.device=4;}}}
     </script>
-        <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/libs/pixi.js"></script>
         <script type="text/javascript" src="js/libs/pixi-tilemap.js"></script>
         <script type="text/javascript" src="js/libs/pixi-picture.js"></script>

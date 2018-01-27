@@ -77,11 +77,7 @@ DataManager.loadDatabase = function() {
 
 DataManager.loadDataFile = function(name, src) {
     var xhr = new XMLHttpRequest();
-    if(parseInt(SessionData.opengame)==2){
-        var url = 'data/' + src;
-    }else{
-        var url = SessionData.dataiiurl + src + '?'+ SessionData.version;
-    }
+    var url = 'data/' + src;
     xhr.open('GET', url);
     xhr.overrideMimeType('application/json');
     xhr.onload = function() {
